@@ -1,2 +1,2 @@
 # ProjectTexter
-Project created to make a text manager...
+Text manager
