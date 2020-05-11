@@ -55,6 +55,7 @@ object WindowMain: TWindowMain
     Top = 257
     Width = 81
     Height = 34
+    Action = ActWhatsapp
   end
   object SpeedButton5: TSpeedButton
     Left = 356
@@ -108,6 +109,10 @@ object WindowMain: TWindowMain
     object ActCapitalized: TAction
       Caption = 'Capitalized'
       OnExecute = ActCapitalizedExecute
+    end
+    object ActWhatsapp: TAction
+      Caption = 'Whatsapp Link'
+      OnExecute = ActWhatsappExecute
     end
   end
 end

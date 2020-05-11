@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons,
-  System.Actions, Vcl.ActnList;
+  System.Actions, Vcl.ActnList, MyUtils;
 
 type
   TWindowMain = class(TForm)
@@ -25,9 +25,11 @@ type
     ActUppercase: TAction;
     ActLowercase: TAction;
     ActCapitalized: TAction;
+    ActWhatsapp: TAction;
     procedure ActCapitalizedExecute(Sender: TObject);
     procedure ActLowercaseExecute(Sender: TObject);
     procedure ActUppercaseExecute(Sender: TObject);
+    procedure ActWhatsappExecute(Sender: TObject);
   private
     function Capitalize(s: string): string;
     { Private declarations }
@@ -55,6 +57,18 @@ end;
 procedure TWindowMain.ActCapitalizedExecute(Sender: TObject);
 begin
   MemoResult.Text := Capitalize(MemoText.Text);
+end;
+
+procedure TWindowMain.ActWhatsappExecute(Sender: TObject);
+var
+  Text: string;
+begin
+  MemoResult.Clear;
+
+  for Text in MemoText.Lines do
+  begin
+    MemoResult.Lines.Add('https://api.whatsapp.com/send?phone=' + TUtils.ExtractNumberInString(Text));
+  end;
 end;
 
 function TWindowMain.Capitalize(s: string): string;
