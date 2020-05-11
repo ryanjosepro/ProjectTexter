@@ -2,7 +2,8 @@ program ProjectTexter;
 
 uses
   Vcl.Forms,
-  ViewMain in 'ViewMain.pas' {WindowMain};
+  ViewMain in 'ViewMain.pas' {WindowMain},
+  MyUtils in 'Code\MyUtils.pas';
 
 {$R *.res}
 
