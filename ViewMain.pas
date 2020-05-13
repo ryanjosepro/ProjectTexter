@@ -26,10 +26,16 @@ type
     ActLowercase: TAction;
     ActCapitalized: TAction;
     ActWhatsapp: TAction;
+    LblTotChars: TLabel;
+    LblTotLetters: TLabel;
+    LblTotNumbers: TLabel;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
     procedure ActCapitalizedExecute(Sender: TObject);
     procedure ActLowercaseExecute(Sender: TObject);
     procedure ActUppercaseExecute(Sender: TObject);
     procedure ActWhatsappExecute(Sender: TObject);
+    procedure MemoTextChange(Sender: TObject);
   private
     function Capitalize(s: string): string;
     { Private declarations }
@@ -67,7 +73,7 @@ begin
 
   for Text in MemoText.Lines do
   begin
-    MemoResult.Lines.Add('https://api.whatsapp.com/send?phone=' + TUtils.ExtractNumberInString(Text));
+    MemoResult.Lines.Add('https://api.whatsapp.com/send?phone=' + TUtils.ExtractNumbers(Text));
   end;
 end;
 
@@ -89,6 +95,18 @@ begin
     flag := (s[i] = ' ')
   end;
   Result := t;
+end;
+
+procedure TWindowMain.MemoTextChange(Sender: TObject);
+var
+  Line: string;
+  TotWithSpaces, TotWithoutSpaces, TotLetters, TotNumbers: integer;
+begin
+  for Line in MemoText.Lines do
+  begin
+    //
+  end;
+  //LblTotChars.Caption := 'Total Caracteres: ' + MemoText.Lines.ToString;
 end;
 
 end.

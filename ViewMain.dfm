@@ -4,7 +4,7 @@ object WindowMain: TWindowMain
   BorderStyle = bsDialog
   Caption = 'Texter'
   ClientHeight = 558
-  ClientWidth = 719
+  ClientWidth = 793
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -81,17 +81,52 @@ object WindowMain: TWindowMain
     Width = 81
     Height = 34
   end
+  object LblTotChars: TLabel
+    Left = 8
+    Top = 238
+    Width = 156
+    Height = 13
+    Caption = 'Total Caracteres (com espa'#231'os):'
+  end
+  object LblTotLetters: TLabel
+    Left = 428
+    Top = 239
+    Width = 61
+    Height = 13
+    Caption = 'Total Letras:'
+  end
+  object LblTotNumbers: TLabel
+    Left = 578
+    Top = 239
+    Width = 73
+    Height = 13
+    Caption = 'Total N'#250'meros:'
+  end
+  object Label1: TLabel
+    Left = 206
+    Top = 238
+    Width = 156
+    Height = 13
+    Caption = 'Total Caracteres (sem espa'#231'os):'
+  end
+  object SpeedButton1: TSpeedButton
+    Left = 704
+    Top = 257
+    Width = 81
+    Height = 34
+  end
   object MemoText: TMemo
     Left = 8
-    Top = 27
-    Width = 690
-    Height = 224
+    Top = 26
+    Width = 777
+    Height = 206
     TabOrder = 0
+    OnChange = MemoTextChange
   end
   object MemoResult: TMemo
     Left = 8
     Top = 316
-    Width = 690
+    Width = 777
     Height = 224
     TabOrder = 1
   end
