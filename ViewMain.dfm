@@ -81,7 +81,7 @@ object WindowMain: TWindowMain
     Width = 81
     Height = 34
   end
-  object LblTotChars: TLabel
+  object LblTotWithSpaces: TLabel
     Left = 8
     Top = 238
     Width = 156
@@ -89,21 +89,21 @@ object WindowMain: TWindowMain
     Caption = 'Total Caracteres (com espa'#231'os):'
   end
   object LblTotLetters: TLabel
-    Left = 428
+    Left = 452
     Top = 239
     Width = 61
     Height = 13
     Caption = 'Total Letras:'
   end
   object LblTotNumbers: TLabel
-    Left = 578
+    Left = 602
     Top = 239
     Width = 73
     Height = 13
     Caption = 'Total N'#250'meros:'
   end
-  object Label1: TLabel
-    Left = 206
+  object LblTotWithoutSpaces: TLabel
+    Left = 230
     Top = 238
     Width = 156
     Height = 13

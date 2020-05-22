@@ -26,10 +26,10 @@ type
     ActLowercase: TAction;
     ActCapitalized: TAction;
     ActWhatsapp: TAction;
-    LblTotChars: TLabel;
+    LblTotWithSpaces: TLabel;
     LblTotLetters: TLabel;
     LblTotNumbers: TLabel;
-    Label1: TLabel;
+    LblTotWithoutSpaces: TLabel;
     SpeedButton1: TSpeedButton;
     procedure ActCapitalizedExecute(Sender: TObject);
     procedure ActLowercaseExecute(Sender: TObject);
@@ -104,9 +104,19 @@ var
 begin
   for Line in MemoText.Lines do
   begin
-    //
+    TotWithSpaces := TotWithSpaces + Line.Length;
+
+    TotWithoutSpaces := TotWithoutSpaces + Line.Replace(' ', '').Length;
+
+    TotLetters := TotLetters + TUtils.ExtractLetters(Line).Length;
+
+    TotNumbers := TotNumbers + TUtils.ExtractNumbers(Line).Length;
   end;
-  //LblTotChars.Caption := 'Total Caracteres: ' + MemoText.Lines.ToString;
+
+  LblTotWithSpaces.Caption := 'Total Caracteres (com espaços): ' + TotWithSpaces.ToString;
+  LblTotWithoutSpaces.Caption := 'Total Caracteres (sem espaços): ' + TotWithoutSpaces.ToString;
+  LblTotLetters.Caption := 'Total Letras: ' + TotLetters.ToString;
+  LblTotNumbers.Caption := 'Total Números: ' + TotNumbers.ToString;
 end;
 
 end.
