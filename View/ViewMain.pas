@@ -31,11 +31,20 @@ type
     LblTotNumbers: TLabel;
     LblTotWithoutSpaces: TLabel;
     SpeedButton1: TSpeedButton;
+    ActLetters: TAction;
+    ActNumbers: TAction;
+    ActNoBreaklines: TAction;
+    SpeedButton2: TSpeedButton;
+    ActCopyToText: TAction;
     procedure ActCapitalizedExecute(Sender: TObject);
     procedure ActLowercaseExecute(Sender: TObject);
     procedure ActUppercaseExecute(Sender: TObject);
     procedure ActWhatsappExecute(Sender: TObject);
     procedure MemoTextChange(Sender: TObject);
+    procedure ActLettersExecute(Sender: TObject);
+    procedure ActNumbersExecute(Sender: TObject);
+    procedure ActNoBreaklinesExecute(Sender: TObject);
+    procedure ActCopyToTextExecute(Sender: TObject);
   private
     function Capitalize(s: string): string;
     { Private declarations }
@@ -53,16 +62,47 @@ implementation
 procedure TWindowMain.ActUppercaseExecute(Sender: TObject);
 begin
   MemoResult.Text := UpperCase(MemoText.Text);
+  MemoResult.SelectAll;
 end;
 
 procedure TWindowMain.ActLowercaseExecute(Sender: TObject);
 begin
   MemoResult.Text := LowerCase(MemoText.Text);
+  MemoResult.SelectAll;
 end;
 
 procedure TWindowMain.ActCapitalizedExecute(Sender: TObject);
 begin
   MemoResult.Text := Capitalize(MemoText.Text);
+  MemoResult.SelectAll;
+end;
+
+procedure TWindowMain.ActLettersExecute(Sender: TObject);
+var
+  Text: string;
+begin
+  MemoResult.Clear;
+
+  for Text in MemoText.Lines do
+  begin
+    MemoResult.Lines.Add(TUtils.ExtractLetters(Text));
+  end;
+
+  MemoResult.SelectAll;
+end;
+
+procedure TWindowMain.ActNumbersExecute(Sender: TObject);
+var
+  Text: string;
+begin
+  MemoResult.Clear;
+
+  for Text in MemoText.Lines do
+  begin
+    MemoResult.Lines.Add(TUtils.ExtractNumbers(Text));
+  end;
+
+  MemoResult.SelectAll;
 end;
 
 procedure TWindowMain.ActWhatsappExecute(Sender: TObject);
@@ -75,7 +115,30 @@ begin
   begin
     MemoResult.Lines.Add('https://api.whatsapp.com/send?phone=' + TUtils.ExtractNumbers(Text));
   end;
+
+  MemoResult.SelectAll;
 end;
+
+procedure TWindowMain.ActNoBreaklinesExecute(Sender: TObject);
+var
+  Text: string;
+begin
+  MemoResult.Clear;
+
+  for Text in MemoText.Lines do
+  begin
+    MemoResult.Text := MemoResult.Text + ' ' + Text;
+  end;
+
+  MemoResult.SelectAll;
+end;
+
+procedure TWindowMain.ActCopyToTextExecute(Sender: TObject);
+begin
+  MemoText.Text := MemoResult.Text;
+end;
+
+//////////////////////////////////////////////////////////////
 
 function TWindowMain.Capitalize(s: string): string;
 var

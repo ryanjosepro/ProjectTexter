@@ -4,7 +4,7 @@ object WindowMain: TWindowMain
   BorderStyle = bsDialog
   Caption = 'Texter'
   ClientHeight = 558
-  ClientWidth = 793
+  ClientWidth = 836
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -51,29 +51,32 @@ object WindowMain: TWindowMain
     Action = ActCapitalized
   end
   object SpeedButton4: TSpeedButton
-    Left = 269
-    Top = 257
+    Left = 443
+    Top = 258
     Width = 81
     Height = 34
     Action = ActWhatsapp
   end
   object SpeedButton5: TSpeedButton
+    Left = 269
+    Top = 257
+    Width = 81
+    Height = 34
+    Action = ActLetters
+  end
+  object SpeedButton6: TSpeedButton
     Left = 356
     Top = 257
     Width = 81
     Height = 34
-  end
-  object SpeedButton6: TSpeedButton
-    Left = 443
-    Top = 257
-    Width = 81
-    Height = 34
+    Action = ActNumbers
   end
   object SpeedButton7: TSpeedButton
     Left = 530
     Top = 257
     Width = 81
     Height = 34
+    Action = ActNoBreaklines
   end
   object SpeedButton8: TSpeedButton
     Left = 617
@@ -115,24 +118,39 @@ object WindowMain: TWindowMain
     Width = 81
     Height = 34
   end
+  object SpeedButton2: TSpeedButton
+    Left = 791
+    Top = 257
+    Width = 34
+    Height = 34
+    Action = ActCopyToText
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object MemoText: TMemo
     Left = 8
     Top = 26
-    Width = 777
+    Width = 817
     Height = 206
+    ScrollBars = ssBoth
     TabOrder = 0
     OnChange = MemoTextChange
   end
   object MemoResult: TMemo
     Left = 8
     Top = 316
-    Width = 777
+    Width = 817
     Height = 224
+    ScrollBars = ssBoth
     TabOrder = 1
   end
   object Actions: TActionList
-    Left = 648
-    Top = 488
+    Left = 720
+    Top = 480
     object ActUppercase: TAction
       Caption = 'Uppercase'
       OnExecute = ActUppercaseExecute
@@ -145,9 +163,25 @@ object WindowMain: TWindowMain
       Caption = 'Capitalized'
       OnExecute = ActCapitalizedExecute
     end
+    object ActLetters: TAction
+      Caption = 'Letters'
+      OnExecute = ActLettersExecute
+    end
+    object ActNumbers: TAction
+      Caption = 'Numbers'
+      OnExecute = ActNumbersExecute
+    end
     object ActWhatsapp: TAction
       Caption = 'Whatsapp Link'
       OnExecute = ActWhatsappExecute
+    end
+    object ActNoBreaklines: TAction
+      Caption = 'No Breakelines'
+      OnExecute = ActNoBreaklinesExecute
+    end
+    object ActCopyToText: TAction
+      Caption = #8593
+      OnExecute = ActCopyToTextExecute
     end
   end
 end

@@ -16,7 +16,7 @@ implementation
 
 class function TUtils.ExtractLetters(Text: string): string;
 begin
-  Result := TRegEx.Replace(Text, '[\W\d]', '')
+  Result := TRegEx.Replace(Text, '[\W\d]', '');
 end;
 
 class function TUtils.ExtractNumbers(Text: string): string;
