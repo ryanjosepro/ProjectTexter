@@ -148,6 +148,26 @@ object WindowMain: TWindowMain
     ScrollBars = ssBoth
     TabOrder = 1
   end
+  object CheckWpp55: TCheckBox
+    Left = 443
+    Top = 293
+    Width = 30
+    Height = 17
+    Caption = '55'
+    Checked = True
+    State = cbChecked
+    TabOrder = 2
+  end
+  object CheckWpp62: TCheckBox
+    Left = 491
+    Top = 295
+    Width = 30
+    Height = 13
+    Caption = '62'
+    Checked = True
+    State = cbChecked
+    TabOrder = 3
+  end
   object Actions: TActionList
     Left = 720
     Top = 480

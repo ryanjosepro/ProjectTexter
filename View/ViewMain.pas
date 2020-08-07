@@ -36,6 +36,8 @@ type
     ActNoBreaklines: TAction;
     SpeedButton2: TSpeedButton;
     ActCopyToText: TAction;
+    CheckWpp55: TCheckBox;
+    CheckWpp62: TCheckBox;
     procedure ActCapitalizedExecute(Sender: TObject);
     procedure ActLowercaseExecute(Sender: TObject);
     procedure ActUppercaseExecute(Sender: TObject);
@@ -47,6 +49,7 @@ type
     procedure ActCopyToTextExecute(Sender: TObject);
   private
     function Capitalize(s: string): string;
+    procedure FocusAndSelect;
     { Private declarations }
   public
     { Public declarations }
@@ -62,19 +65,19 @@ implementation
 procedure TWindowMain.ActUppercaseExecute(Sender: TObject);
 begin
   MemoResult.Text := UpperCase(MemoText.Text);
-  MemoResult.SelectAll;
+  FocusAndSelect;
 end;
 
 procedure TWindowMain.ActLowercaseExecute(Sender: TObject);
 begin
   MemoResult.Text := LowerCase(MemoText.Text);
-  MemoResult.SelectAll;
+  FocusAndSelect;
 end;
 
 procedure TWindowMain.ActCapitalizedExecute(Sender: TObject);
 begin
   MemoResult.Text := Capitalize(MemoText.Text);
-  MemoResult.SelectAll;
+  FocusAndSelect;
 end;
 
 procedure TWindowMain.ActLettersExecute(Sender: TObject);
@@ -88,7 +91,7 @@ begin
     MemoResult.Lines.Add(TUtils.ExtractLetters(Text));
   end;
 
-  MemoResult.SelectAll;
+  FocusAndSelect;
 end;
 
 procedure TWindowMain.ActNumbersExecute(Sender: TObject);
@@ -102,21 +105,29 @@ begin
     MemoResult.Lines.Add(TUtils.ExtractNumbers(Text));
   end;
 
-  MemoResult.SelectAll;
+  FocusAndSelect;
 end;
 
 procedure TWindowMain.ActWhatsappExecute(Sender: TObject);
 var
-  Text: string;
+  Text, WppNumber: string;
 begin
   MemoResult.Clear;
 
   for Text in MemoText.Lines do
   begin
-    MemoResult.Lines.Add('https://api.whatsapp.com/send?phone=' + TUtils.ExtractNumbers(Text));
+    WppNumber := TUtils.ExtractNumbers(Text);
+
+    if CheckWpp62.Checked then
+      WppNumber := '62' + WppNumber;
+
+    if CheckWpp55.Checked then
+      WppNumber := '55' + WppNumber;
+
+    MemoResult.Lines.Add('https://api.whatsapp.com/send?phone=' + WppNumber);
   end;
 
-  MemoResult.SelectAll;
+  FocusAndSelect;
 end;
 
 procedure TWindowMain.ActNoBreaklinesExecute(Sender: TObject);
@@ -130,7 +141,7 @@ begin
     MemoResult.Text := MemoResult.Text + ' ' + Text;
   end;
 
-  MemoResult.SelectAll;
+  FocusAndSelect;
 end;
 
 procedure TWindowMain.ActCopyToTextExecute(Sender: TObject);
@@ -139,6 +150,12 @@ begin
 end;
 
 //////////////////////////////////////////////////////////////
+
+procedure TWindowMain.FocusAndSelect;
+begin
+  MemoResult.SetFocus;
+  MemoResult.SelectAll;
+end;
 
 function TWindowMain.Capitalize(s: string): string;
 var
