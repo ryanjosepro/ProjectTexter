@@ -38,6 +38,7 @@ type
     ActCopyToText: TAction;
     CheckWpp55: TCheckBox;
     CheckWpp62: TCheckBox;
+    ActEsc: TAction;
     procedure ActCapitalizedExecute(Sender: TObject);
     procedure ActLowercaseExecute(Sender: TObject);
     procedure ActUppercaseExecute(Sender: TObject);
@@ -47,6 +48,7 @@ type
     procedure ActNumbersExecute(Sender: TObject);
     procedure ActNoBreaklinesExecute(Sender: TObject);
     procedure ActCopyToTextExecute(Sender: TObject);
+    procedure ActEscExecute(Sender: TObject);
   private
     function Capitalize(s: string): string;
     procedure FocusAndSelect;
@@ -197,6 +199,11 @@ begin
   LblTotWithoutSpaces.Caption := 'Total Caracteres (sem espaços): ' + TotWithoutSpaces.ToString;
   LblTotLetters.Caption := 'Total Letras: ' + TotLetters.ToString;
   LblTotNumbers.Caption := 'Total Números: ' + TotNumbers.ToString;
+end;
+
+procedure TWindowMain.ActEscExecute(Sender: TObject);
+begin
+  Close;
 end;
 
 end.

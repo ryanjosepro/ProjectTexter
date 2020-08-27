@@ -203,5 +203,10 @@ object WindowMain: TWindowMain
       Caption = #8593
       OnExecute = ActCopyToTextExecute
     end
+    object ActEsc: TAction
+      Caption = 'ActEsc'
+      ShortCut = 27
+      OnExecute = ActEscExecute
+    end
   end
 end
