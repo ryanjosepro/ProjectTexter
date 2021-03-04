@@ -29,61 +29,6 @@ object WindowMain: TWindowMain
     Height = 13
     Caption = 'Resultado'
   end
-  object BtnUppercase: TSpeedButton
-    Left = 8
-    Top = 257
-    Width = 81
-    Height = 34
-    Action = ActUppercase
-  end
-  object BtnLowercase: TSpeedButton
-    Left = 95
-    Top = 257
-    Width = 81
-    Height = 34
-    Action = ActLowercase
-  end
-  object BtnCapitalized: TSpeedButton
-    Left = 182
-    Top = 257
-    Width = 81
-    Height = 34
-    Action = ActCapitalized
-  end
-  object SpeedButton4: TSpeedButton
-    Left = 443
-    Top = 258
-    Width = 81
-    Height = 34
-    Action = ActWhatsapp
-  end
-  object SpeedButton5: TSpeedButton
-    Left = 269
-    Top = 257
-    Width = 81
-    Height = 34
-    Action = ActLetters
-  end
-  object SpeedButton6: TSpeedButton
-    Left = 356
-    Top = 257
-    Width = 81
-    Height = 34
-    Action = ActNumbers
-  end
-  object SpeedButton7: TSpeedButton
-    Left = 530
-    Top = 257
-    Width = 81
-    Height = 34
-    Action = ActNoBreaklines
-  end
-  object SpeedButton8: TSpeedButton
-    Left = 617
-    Top = 257
-    Width = 81
-    Height = 34
-  end
   object LblTotWithSpaces: TLabel
     Left = 8
     Top = 238
@@ -112,25 +57,6 @@ object WindowMain: TWindowMain
     Height = 13
     Caption = 'Total Caracteres (sem espa'#231'os):'
   end
-  object SpeedButton1: TSpeedButton
-    Left = 704
-    Top = 257
-    Width = 81
-    Height = 34
-  end
-  object SpeedButton2: TSpeedButton
-    Left = 791
-    Top = 257
-    Width = 34
-    Height = 34
-    Action = ActCopyToText
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object MemoText: TMemo
     Left = 8
     Top = 26
@@ -146,7 +72,7 @@ object WindowMain: TWindowMain
     Width = 817
     Height = 224
     ScrollBars = ssBoth
-    TabOrder = 1
+    TabOrder = 13
   end
   object CheckWpp55: TCheckBox
     Left = 443
@@ -156,7 +82,7 @@ object WindowMain: TWindowMain
     Caption = '55'
     Checked = True
     State = cbChecked
-    TabOrder = 2
+    TabOrder = 11
   end
   object CheckWpp62: TCheckBox
     Left = 491
@@ -166,7 +92,91 @@ object WindowMain: TWindowMain
     Caption = '62'
     Checked = True
     State = cbChecked
+    TabOrder = 12
+  end
+  object BtnUppercase: TButton
+    Left = 8
+    Top = 257
+    Width = 81
+    Height = 34
+    Action = ActUppercase
+    TabOrder = 1
+  end
+  object BtnLowercase: TButton
+    Left = 95
+    Top = 257
+    Width = 81
+    Height = 34
+    Action = ActLowercase
+    TabOrder = 2
+  end
+  object BtnCapitalized: TButton
+    Left = 182
+    Top = 257
+    Width = 81
+    Height = 34
+    Action = ActCapitalized
     TabOrder = 3
+  end
+  object BtnWppLink: TButton
+    Left = 443
+    Top = 258
+    Width = 81
+    Height = 34
+    Action = ActWhatsapp
+    TabOrder = 10
+  end
+  object BtnLetters: TButton
+    Left = 269
+    Top = 257
+    Width = 81
+    Height = 34
+    Action = ActLetters
+    TabOrder = 4
+  end
+  object BtnNumbers: TButton
+    Left = 356
+    Top = 257
+    Width = 81
+    Height = 34
+    Action = ActNumbers
+    TabOrder = 5
+  end
+  object BtnNoBreaklines: TButton
+    Left = 530
+    Top = 257
+    Width = 81
+    Height = 34
+    Action = ActNoBreaklines
+    TabOrder = 6
+  end
+  object SpeedButton8: TButton
+    Left = 617
+    Top = 257
+    Width = 81
+    Height = 34
+    TabOrder = 7
+  end
+  object SpeedButton1: TButton
+    Left = 704
+    Top = 257
+    Width = 81
+    Height = 34
+    TabOrder = 8
+  end
+  object BtnCopyText: TButton
+    Left = 791
+    Top = 257
+    Width = 34
+    Height = 34
+    Action = ActCopyToText
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 9
   end
   object Actions: TActionList
     Left = 720
